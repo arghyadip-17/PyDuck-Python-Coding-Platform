@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ problem.title }} | PyDuck</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <h1>PyDuck</h1>
+        <p>Learn Python by solving real coding problems</p>
+    </div>
+    <div class="toggle" onclick="toggleTheme()">🌙</div>
+</div>
+
+<div class="main">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <h3>Problems</h3>
+        {% for pid, p in problems.items() %}
+            <a class="problem-link" href="/problem/{{pid}}">
+                {{ p.title }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content">
+        <a href="{{ url_for('index') }}" class="home-btn" title="Go to Home">⌂</a>
+
+        <h2>{{ problem.title }}</h2>
+        <p class="description">{{ problem.description }}</p>
+
+        <form method="POST">
+        <textarea name="code" placeholder="Write your Python code here...">{{ user_code | e }}</textarea>
+            <br>
+            <button type="submit">▶ Run Code</button>
+        </form>
+
+        {% if result %}
+            {% if "Accepted" in result %}
+                <div class="result correct">{{ result|safe }}</div>
+            {% else %}
+                <div class="result wrong">{{ result|safe }}</div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+<footer class="footer">
+    © 2026 PyDuck - Created by Arghyadip Ghosh | All rights reserved.
+</footer>
+</body>
+</html>
