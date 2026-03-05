@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PyDuck</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
+<div class="header">
+    <div class="title-area">
+        <h1 class="site-title">
+    <a href="{{ url_for('index') }}" class="home-link">
+        <img src="{{ url_for('static', filename='PyDuck.jpg') }}"
+             alt="PyDuck Logo"
+             class="nav-logo">
+        PyDuck
+    </a>
+</h1>
+
+    </div>
+
+    <div class="toggle" onclick="toggleTheme()">🌙</div>
+</div>
+
+<div class="main">
+    <div class="sidebar">
+        <h3>Problems</h3>
+        {% for pid, p in problems.items() %}
+            <a class="problem-link" href="/problem/{{pid}}">
+                {{ p.title }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="content">
+
+        <h2>Welcome to PyDuck 👋</h2>
+        <p class="description">
+            Select a problem from the left panel and start coding in Python.
+        </p>
+        <div class="hero">
+
+    <img src="{{ url_for('static', filename='PyDuck.jpg') }}"
+         alt="PyDuck Logo"
+         class="hero-logo">
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+<footer class="footer">
+    © 2026 PyDuck - Created by Arghyadip Ghosh | All rights reserved.
+</footer>
+
+</body>
+</html>
