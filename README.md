@@ -11,6 +11,9 @@ The platform is built using Flask and focuses on simplicity, clean UI, and core 
 - 🧩 Clean and minimal coding interface
 - 🔐 Safe execution using temporary files
 - 🧑‍💻 No login required
+## 🌐 Live Website
+👉 https://pyduck-python-coding-platform.onrender.com
+
 <img width="1919" height="908" alt="image" src="https://github.com/user-attachments/assets/713a2567-5f4c-4fe9-a3a5-5e575df3e27f" />
 
 ## 🛠️ Tech Stack
